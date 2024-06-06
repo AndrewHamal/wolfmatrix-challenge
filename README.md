@@ -3,14 +3,17 @@
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
+1. Clone from Github
+git clone https://github.com/AndrewHamal/wolfmatrix-challenge.git
 
-1. Install dependencies
+
+2. Install dependencies
 
    ```bash
-   npm install
+   yarn
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
     npx expo start
@@ -24,13 +27,3 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## step 1
-git clone https://github.com/AndrewHamal/wolfmatrix-challenge.git
-
-## step 2
-yarn 
-
-## step 3
-npx expo start
-
