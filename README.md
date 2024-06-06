@@ -4,9 +4,9 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Get started
 1. Clone from Github
-  ```bash
-   git clone https://github.com/AndrewHamal/wolfmatrix-challenge.git
-  ```
+   ```bash
+      git clone https://github.com/AndrewHamal/wolfmatrix-challenge.git
+   ```
 
 2. Install dependencies
 
