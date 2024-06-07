@@ -1,4 +1,4 @@
-import { View, Pressable } from 'react-native';
+import { View, Pressable, ActivityIndicator } from 'react-native';
 import useSWR from 'swr'
 import Input from '@/components/Input';
 import { AntDesign, Feather } from '@expo/vector-icons';
@@ -12,7 +12,7 @@ import Empty from '@/components/Empty';
 export default function HomeScreen() {
   const [keyword, setKeyword] = useState('');
   const [selectedItem, setSelectedItem] = useState([]);
-  const { data } = useSWR('https://jsonplaceholder.typicode.com/todos', fetcher);
+  const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos', fetcher);
 
   return (
     <SafeAreaView className='bg-white'>
@@ -33,7 +33,8 @@ export default function HomeScreen() {
         {/* reason for using flashlist over flatlist is performance. benchmark shows flashlist is 7.5x faster than flatlist  */}
         {/* if i have to do keyword search in RESTFUL api i would use debounce  */}
         {/* im directly using filter in data props because swr pulls data one time and keeps it on cache which wont cause memory leak even if i use filter directly */}
-        <FlashList
+
+        {!data && !error ? <ActivityIndicator className='mt-5' /> : <FlashList
           ListEmptyComponent={() => <Empty />}
           keyExtractor={(item: any) => item.id}
           showsVerticalScrollIndicator={false}
@@ -41,7 +42,7 @@ export default function HomeScreen() {
           contentContainerStyle={{ paddingBottom: 150, paddingTop: 15 }}
           data={data?.data?.filter((res: any) => res.title.toLowerCase().match(keyword.toLowerCase()))}
           renderItem={({ item }: any) => <ItemList selectedItem={selectedItem} setSelectedItem={setSelectedItem} item={item} />}
-        />
+        />}
       </View>
     </SafeAreaView>
   );
